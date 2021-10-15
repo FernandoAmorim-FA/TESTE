@@ -1,35 +1,35 @@
 #INCLUDE "PROTHEUS.CH"
 #INCLUDE "TRMR010.CH"
 
-/*���������������������������������������������������������������������������
-�����������������������������������������������������������������������������
-�������������������������������������������������������������������������Ŀ��
-���Programa  � TRMR010  � Autor � Eduardo Ju            � Data � 20/06/06 ���
-�������������������������������������������������������������������������Ĵ��
-���Descri��o � Relatorio de Cargos do Treinamento                         ���
-�������������������������������������������������������������������������Ĵ��
-���Sintaxe   � TRMR010                                                    ���
-�������������������������������������������������������������������������Ĵ��
-���         ATUALIZACOES SOFRIDAS DESDE A CONSTRU�AO INICIAL.             ���
-�������������������������������������������������������������������������Ĵ��
-���Programador � Data   � BOPS �  Motivo da Alteracao                     ���
-�������������������������������������������������������������������������Ĵ��
-���Cecilia Car.�31/07/14�TPZWAO�AIncluido o fonte da 11 para a 12 e efetua���
-���            �        �      �da a limpeza.                             ���
-���Henrique V. �08/01/15�TRHHXE�R�plica chamado TRHHXE-Ajuste referente a ���
-���            �        �      �Ordem de tratamento da tabela RA5, agora  ���
-���            �        �      �levando em conta Centro de Custo do Cargo ���
-���            �        �      �a ser impresso                            ���
-��������������������������������������������������������������������������ٱ�
-�����������������������������������������������������������������������������
-�����������������������������������������������������������������������������*/
+/*ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+±±³Programa  ³ TRMR010  ³ Autor ³ Eduardo Ju            ³ Data ³ 20/06/06 ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Descri‡…o ³ Relatorio de Cargos do Treinamento                         ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Sintaxe   ³ TRMR010                                                    ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³         ATUALIZACOES SOFRIDAS DESDE A CONSTRU€AO INICIAL.  TESTE      ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Programador ³ Data   ³ BOPS ³  Motivo da Alteracao                     ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Cecilia Car.³31/07/14³TPZWAO³AIncluido o fonte da 11 para a 12 e efetua³±±
+±±³            ³        ³      ³da a limpeza.                             ³±±
+±±³Henrique V. ³08/01/15³TRHHXE³Réplica chamado TRHHXE-Ajuste referente a ³±±
+±±³            ³        ³      ³Ordem de tratamento da tabela RA5, agora  ³±±
+±±³            ³        ³      ³levando em conta Centro de Custo do Cargo ³±±
+±±³            ³        ³      ³a ser impresso                            ³±±
+±±ÀÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß*/
 Function TRMR010()
 Local oReport
 Local aArea := GetArea()
 
-//��������������������������������������������������������������Ŀ
-//� Verifica as perguntas selecionadas                           �
-//����������������������������������������������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Verifica as perguntas selecionadas                           ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 Pergunte("TR010R",.F.)
 oReport := ReportDef()
 oReport:PrintDialog()
@@ -38,19 +38,19 @@ RestArea( aArea )
 
 Return
 
-/*���������������������������������������������������������������������������
-�����������������������������������������������������������������������������
-�������������������������������������������������������������������������Ŀ��
-���Fun��o    �ReportDef() � Autor � Eduardo Ju          � Data � 20.06.06 ���
-�������������������������������������������������������������������������Ĵ��
-���Descri��o �Definicao do Componente de Impressao do Relatorio           ���
-�������������������������������������������������������������������������Ĵ��
-���Parametros�                                                            ���
-�������������������������������������������������������������������������Ĵ��
-��� Uso      �                                                            ���
-��������������������������������������������������������������������������ٱ�
-�����������������������������������������������������������������������������
-���������������������������������������������������������������������������*/
+/*ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+±±³Fun‡…o    ³ReportDef() ³ Autor ³ Eduardo Ju          ³ Data ³ 20.06.06 ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Descri‡…o ³Definicao do Componente de Impressao do Relatorio           ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Parametros³                                                            ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³ Uso      ³                                                            ³±±
+±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß*/
 Static Function ReportDef()
 
 Local oReport
@@ -63,20 +63,20 @@ Local oSection6
 Local oSection7
 Local oSection8
 
-//������������������������������������������������������������������������Ŀ
-//�Criacao do componente de impressao                                      �
-//�TReport():New                                                           �
-//�ExpC1 : Nome do relatorio                                               �
-//�ExpC2 : Titulo                                                          �
-//�ExpC3 : Pergunte                                                        �
-//�ExpB4 : Bloco de codigo que sera executado na confirmacao da impressao  �
-//�ExpC5 : Descricao                                                       �
-//��������������������������������������������������������������������������
-oReport:=TReport():New("TRMR010",STR0001,"TR010R",{|oReport| PrintReport(oReport)},STR0007)	//"Relatorio de Cargos"#"Ser� impresso de acordo com os parametros solicitados pelo usuario"
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³Criacao do componente de impressao                                      ³
+//³TReport():New                                                           ³
+//³ExpC1 : Nome do relatorio                                               ³
+//³ExpC2 : Titulo                                                          ³
+//³ExpC3 : Pergunte                                                        ³
+//³ExpB4 : Bloco de codigo que sera executado na confirmacao da impressao  ³
+//³ExpC5 : Descricao                                                       ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+oReport:=TReport():New("TRMR010",STR0001,"TR010R",{|oReport| PrintReport(oReport)},STR0007)	//"Relatorio de Cargos"#"Será impresso de acordo com os parametros solicitados pelo usuario"
 
-//����������������������������������Ŀ
-//� Criacao da Primeira Secao: Cargo �
-//������������������������������������ 
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Criacao da Primeira Secao: Cargo ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ 
 oSection1 := TRSection():New(oReport,STR0001,{"SQ3","SQ0","SQB","CTT"},/*aOrdem*/,/*Campos do SX3*/,/*Campos do SIX*/)	
 oSection1:SetTotalInLine(.F.)      
 
@@ -93,9 +93,9 @@ TRPosition():New(oSection1,"SQ0",1,{|| RhFilial("SQ0",SQ3->Q3_FILIAL) + SQ3->Q3_
 TRPosition():New(oSection1,"SQB",1,{|| RhFilial("SQB",SQ3->Q3_FILIAL) + SQ3->Q3_DEPTO})
 TRPosition():New(oSection1,"CTT",1,{|| RhFilial("CTT",SQ3->Q3_FILIAL) + SQ3->Q3_CC})
 
-//��������������������������������������������������������Ŀ
-//� Criacao da Segunda Secao: Descricao Detalhada do Cargo �
-//����������������������������������������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Criacao da Segunda Secao: Descricao Detalhada do Cargo ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 oSection2 := TRSection():New(oSection1,STR0009,{"SQ3"},/*aOrdem*/,/*Campos do SX3*/,/*Campos do SIX*/)	
 oSection2:SetTotalInLine(.F.)  
 oSection2:SetHeaderBreak()
@@ -107,9 +107,9 @@ TRCell():New(oSection2,"Q3_MEMO1","SQ3","",/*Picture*/,,/*lPixel*/,{|| MSMM(SQ3-
 oSection2:Cell("Q3_MEMO1"):SetLineBreak(.T.)//Imprime Campo Memmo  
 oSection2:Cell("Q3_DESCDET"):Disable()
 
-//���������������������������������������������������������������������Ŀ
-//� Criacao da Terceira Secao: Descricao das Responsabilidades do Cargo �
-//�����������������������������������������������������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Criacao da Terceira Secao: Descricao das Responsabilidades do Cargo ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 oSection3 := TRSection():New(oSection1,STR0021,{"SQ3"},/*aOrdem*/,/*Campos do SX3*/,/*Campos do SIX*/)	
 oSection3:SetTotalInLine(.F.)  
 oSection3:SetHeaderBreak()
@@ -122,9 +122,9 @@ TRCell():New(oSection3,"Q3_MEMO2","SQ3","",/*Picture*/,,/*lPixel*/,{|| MSMM(SQ3-
 oSection3:Cell("Q3_MEMO2"):SetLineBreak(.T.) //Imprime Campo Memmo
 oSection3:Cell("Q3_DRESP"):Disable() 
 
-//���������������������������������������������������������������������Ŀ
-//� Criacao da Quarta Secao: Descricao Relacionamento Interno do Cargo  �
-//�����������������������������������������������������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Criacao da Quarta Secao: Descricao Relacionamento Interno do Cargo  ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 oSection4 := TRSection():New(oSection1,STR0023,{"SQ3"},/*aOrdem*/,/*Campos do SX3*/,/*Campos do SIX*/)	
 oSection4:SetTotalInLine(.F.)  
 oSection4:SetHeaderBreak()
@@ -137,9 +137,9 @@ TRCell():New(oSection4,"Q3_MEMO3","SQ3","",/*Picture*/,,/*lPixel*/,{|| MSMM(SQ3-
 oSection4:Cell("Q3_MEMO3"):SetLineBreak(.T.) //Imprime Campo Memmo
 oSection4:Cell("Q3_DRELINT"):Disable() 
 
-//�������������������������������������������������������������Ŀ
-//� Criacao da Quinta Secao: Descricao das Habilidades do Cargo �
-//���������������������������������������������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Criacao da Quinta Secao: Descricao das Habilidades do Cargo ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 oSection5 := TRSection():New(oSection1,STR0025,{"SQ3"},/*aOrdem*/,/*Campos do SX3*/,/*Campos do SIX*/)	
 oSection5:SetTotalInLine(.F.)  
 oSection5:SetHeaderBreak()
@@ -151,9 +151,9 @@ TRCell():New(oSection5,"Q3_MEMO4","SQ3","",/*Picture*/,,/*lPixel*/,{|| MSMM(SQ3-
 oSection5:Cell("Q3_MEMO4"):SetLineBreak(.T.) //Imprime Campo Memmo
 oSection5:Cell("Q3_DHABILI"):Disable() 
 
-//����������������������������������������������Ŀ
-//� Criacao da Sexta Secao: Graduacao dos Cargos �
-//������������������������������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Criacao da Sexta Secao: Graduacao dos Cargos ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 oSection6 := TRSection():New(oSection1,STR0011,{"SQ4","SQ1","SQ2"},/*aOrdem*/,/*Campos do SX3*/,/*Campos do SIX*/)	
 oSection6:SetTotalInLine(.F.)  
 oSection6:SetHeaderBreak()
@@ -174,9 +174,9 @@ If MV_PAR12 == 1
 	TRFunction():New(oSection6:Cell("Q4_PONTOS"),/*cId*/,"SUM",/*oBreak*/,/*cTitle*/,"@E 9999.99"/*cPicture*/,/*uFormula*/,/*lEndSection*/,.F./*lEndReport*/,/*lEndPage*/)
 EndIf	
 
-//��������������������������������������������Ŀ
-//� Criacao da Setima Secao: Cursos dos Cargos �
-//����������������������������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Criacao da Setima Secao: Cursos dos Cargos ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 oSection7 := TRSection():New(oSection1,STR0015,{"RA5","RA1"},/*aOrdem*/,/*Campos do SX3*/,/*Campos do SIX*/)	
 oSection7:SetTotalInLine(.F.)  
 oSection7:SetHeaderBreak()
@@ -194,9 +194,9 @@ TRCell():New(oSection7,"RA5_UNPRIO","RA5")			//Unidade da Prioridade
 
 TRPosition():New(oSection7,"RA1",1,{|| RhFilial("RA1",RA5->RA5_FILIAL) + RA5->RA5_CURSO }) 
 
-//���������������������������������������������������Ŀ
-//� Criacao da Oitava Secao: Competencias/Habilidades �
-//�����������������������������������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Criacao da Oitava Secao: Competencias/Habilidades ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 oSection8 := TRSection():New(oSection1,STR0027,{"RBH","RBG","RBK","RBL"},/*aOrdem*/,/*Campos do SX3*/,/*Campos do SIX*/)	
 oSection8:SetTotalInLine(.F.)  
 oSection8:SetHeaderBreak()
@@ -222,19 +222,19 @@ TRPosition():New(oSection8,"RBL",1,{|| RhFilial("RBL",RBH->RBH_FILIAL) + RBH->RB
 
 Return oReport          
 
-/*���������������������������������������������������������������������������
-�����������������������������������������������������������������������������
-�������������������������������������������������������������������������Ŀ��
-���Fun��o    �ReportDef() � Autor � Eduardo Ju          � Data � 21.06.06 ���
-�������������������������������������������������������������������������Ĵ��
-���Descri��o �Impressao do Relatorio                                      ���
-�������������������������������������������������������������������������Ĵ��
-���Parametros�                                                            ���
-�������������������������������������������������������������������������Ĵ��
-��� Uso      �                                                            ���
-��������������������������������������������������������������������������ٱ�
-�����������������������������������������������������������������������������
-���������������������������������������������������������������������������*/
+/*ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+±±³Fun‡…o    ³ReportDef() ³ Autor ³ Eduardo Ju          ³ Data ³ 21.06.06 ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Descri‡…o ³Impressao do Relatorio                                      ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Parametros³                                                            ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³ Uso      ³                                                            ³±±
+±±ÀÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß*/
 Static Function PrintReport(oReport)
 
 Local oSection1 := oReport:Section(1)
@@ -249,84 +249,84 @@ Local cAcessaSQ3:= &("{ || " + ChkRH(FunName(),"SQ3","2") + "}")
 Local cFiltro 	:= ""
 Local cFiltroSQ4:= ""
 
-//����������������������������������������������������Ŀ
-//� Variaveis utilizadas para parametros               �
-//� MV_PAR01 - "Filial ?"                              �
-//� MV_PAR02 - "Cargo ?"                               �
-//� MV_PAR03 - "Grupo ?"                               �
-//� MV_PAR04 - "Impr Descr Detalh ?"                   �
-//� MV_PAR05 - "Impr.Responsabilid. do Cargo ?"        �
-//� MV_PAR06 - "Impr.Relacionamento do Cargo ?"        �
-//� MV_PAR07 - "Impr.Habilidades do Cargo ?"           �
-//� MV_PAR08 - "Impr Graduacao ?"                      �
-//� MV_PAR09 - "Fator Graduacao De ?"                  �
-//� MV_PAR10 - "Impr Graduac Detalh ?"                 �
-//� MV_PAR11 - "Imprime Pontos ?"                      �
-//� MV_PAR12 - "Somente Totais Ptos ?"                 �
-//� MV_PAR13 - "Impr Cursos ?"                         �
-//� MV_PAR14 - "Competencias/Habilidades ?"            �
-//� MV_PAR15 - "Impr Cargo p/Folha ?"                  �
-//������������������������������������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Variaveis utilizadas para parametros               ³
+//³ MV_PAR01 - "Filial ?"                              ³
+//³ MV_PAR02 - "Cargo ?"                               ³
+//³ MV_PAR03 - "Grupo ?"                               ³
+//³ MV_PAR04 - "Impr Descr Detalh ?"                   ³
+//³ MV_PAR05 - "Impr.Responsabilid. do Cargo ?"        ³
+//³ MV_PAR06 - "Impr.Relacionamento do Cargo ?"        ³
+//³ MV_PAR07 - "Impr.Habilidades do Cargo ?"           ³
+//³ MV_PAR08 - "Impr Graduacao ?"                      ³
+//³ MV_PAR09 - "Fator Graduacao De ?"                  ³
+//³ MV_PAR10 - "Impr Graduac Detalh ?"                 ³
+//³ MV_PAR11 - "Imprime Pontos ?"                      ³
+//³ MV_PAR12 - "Somente Totais Ptos ?"                 ³
+//³ MV_PAR13 - "Impr Cursos ?"                         ³
+//³ MV_PAR14 - "Competencias/Habilidades ?"            ³
+//³ MV_PAR15 - "Impr Cargo p/Folha ?"                  ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 
-//������������������������������Ŀ
-//� Descricao Detalhada do Cargo �
-//��������������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Descricao Detalhada do Cargo ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 If MV_PAR04 <> 1
 	oSection2:Disable()
 EndIf
 
-//������������������������������������������Ŀ
-//� Descricao das Responsabilidades do Cargo �
-//��������������������������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Descricao das Responsabilidades do Cargo ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 If MV_PAR05 <> 1
 	oSection3:Disable()
 EndIf
 
-//�������������������������������������������Ŀ
-//� Descricao Relacionamento Interno do Cargo �
-//���������������������������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Descricao Relacionamento Interno do Cargo ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 If MV_PAR06 <> 1
 	oSection4:Disable()
 EndIf
 
-//������������������������������������Ŀ
-//� Descricao das Habilidades do Cargo �
-//��������������������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Descricao das Habilidades do Cargo ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 If MV_PAR07 <> 1
 	oSection5:Disable()
 EndIf
 
-//��������������������Ŀ
-//� Graduacao do Cargo �
-//����������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Graduacao do Cargo ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 If MV_PAR08 <> 1
 	oSection6:Disable()
 EndIf
 
-//�����������������Ŀ
-//� Cursos do Cargo �
-//�������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Cursos do Cargo ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 If MV_PAR13 <> 1
 	oSection7:Disable()
 Endif
 
-//��������������������������Ŀ
-//� Competencias/Habilidades �
-//����������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Competencias/Habilidades ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 If MV_PAR14 <> 1 
 	oSection8:Disable()
 EndIf
 
-//���������������������������Ŀ
-//� Imprime Cargo por Folha   �
-//�����������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Imprime Cargo por Folha   ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 If MV_PAR15 == 1   		
 	oSection1:SetPageBreak(.T.) //Salta Pagina		
 EndIf
 
-//������������������������������������������������������Ŀ
-//� Transforma parametros Range em expressao (intervalo) �
-//��������������������������������������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Transforma parametros Range em expressao (intervalo) ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 MakeAdvplExpr("TR010R")	                                  
 
 If !Empty(MV_PAR01) .And. !Empty(xFilial("SQ3"))
@@ -347,17 +347,17 @@ If !Empty(MV_PAR09)
 	cFiltroSQ4 := MV_PAR09
 EndIf  
 
-//���������������������������������������Ŀ
-//� Filtra Tabela Principal e Secundaria  �
-//�����������������������������������������
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Filtra Tabela Principal e Secundaria  ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 oSection1:SetFilter(cFiltro)   
 oSection1:Setfilter(cFiltroSQ4,,,"SQ4")
 
 oSection1:SetLineCondition(cAcessaSQ3)
        
-//���������������������������Ŀ
-//� Condicao para Impressao   �
-//����������������������������� 
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Condicao para Impressao   ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ 
 oSection2:SetParentRecno()
 oSection3:SetParentRecno()
 oSection4:SetParentRecno()
